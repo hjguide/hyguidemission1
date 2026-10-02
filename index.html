@@ -29,6 +29,12 @@ body{
   overflow:hidden;
 }
 
+  <img
+  id="photo"
+  class="slide"
+  src=""
+  alt="Travel Mate Mission"
+/>
 
 /* =========================================
    LOGIN
@@ -790,11 +796,6 @@ button:hover{
 <script>
 
 
-/* =========================================
-   ★★★ 매일 여기만 수정 ★★★
-========================================= */
-
-
 /* DAY 1 */
 
 const PASSWORD = "LOST";
@@ -851,25 +852,17 @@ function checkPassword(){
 
 function showImage(){
 
-  const photo =
-    document.getElementById("photo");
+  const photo = document.getElementById("photo");
 
+  photo.src = images[index];
 
-  photo.style.opacity = "0";
+  document.getElementById("current").innerText =
+    index + 1;
 
+  document.getElementById("total").innerText =
+    images.length;
 
-  setTimeout(() => {
-
-    photo.src = images[index];
-
-
-    photo.onload = () => {
-
-      photo.style.opacity = "1";
-
-    };
-
-  },120);
+}
 
 
   document
