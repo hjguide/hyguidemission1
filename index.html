@@ -859,27 +859,18 @@ function checkPassword(){
    IMAGE
    ========================================= */
 
+let index = 0;
+
 function showImage(){
+  const photo = document.getElementById("photo");
 
-  const photo =
-    document.getElementById("photo");
+  photo.src = images[index];
 
+  document.getElementById("current").innerText =
+    String(index + 1).padStart(2, "0");
 
-  photo.src =
-    images[index];
-
-
-  document
-    .getElementById("current")
-    .innerText =
-    String(index + 1).padStart(2,"0");
-
-
-  document
-    .getElementById("total")
-    .innerText =
-    String(images.length).padStart(2,"0");
-
+  document.getElementById("total").innerText =
+    String(images.length).padStart(2, "0");
 }
 
 
