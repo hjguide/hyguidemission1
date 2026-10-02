@@ -29,12 +29,6 @@ body{
   overflow:hidden;
 }
 
-  <img
-  id="photo"
-  class="slide"
-  src=""
-  alt="Travel Mate Mission"
-/>
 
 /* =========================================
    LOGIN
@@ -332,18 +326,19 @@ button:hover{
 
 .slide{
   position:absolute;
+
   left:50%;
   top:50%;
+
   transform:translate(-50%,-50%);
 
-  width:80%;
-  height:80%;
+  width:calc(100% - 140px);
+
+  height:calc(100% - 120px);
 
   object-fit:contain;
 
-  display:block;
-  opacity:1;
-  z-index:10;
+  transition:opacity .25s ease;
 }
 
 
@@ -795,6 +790,11 @@ button:hover{
 <script>
 
 
+/* =========================================
+   ★★★ 매일 여기만 수정 ★★★
+========================================= */
+
+
 /* DAY 1 */
 
 const PASSWORD = "LOST";
@@ -803,6 +803,7 @@ const images = [
   "images/image01.jpg",
   "images/image02.jpg"
 ];
+
 
 /* =========================================
    PASSWORD CHECK
@@ -849,28 +850,27 @@ function checkPassword(){
    IMAGE
 ========================================= */
 
-function showImage(function showImage(){
+function showImage(){
 
-  const photo = document.getElementById("photo");
+  const photo =
+    document.getElementById("photo");
 
-  photo.src = "images/image01.jpg";
 
-  document.getElementById("current").innerText = "1";
-  document.getElementById("total").innerText = "2";
+  photo.style.opacity = "0";
 
-}){
 
-  const photo = document.getElementById("photo");
+  setTimeout(() => {
 
-  photo.src = images[index];
+    photo.src = images[index];
 
-  document.getElementById("current").innerText =
-    index + 1;
 
-  document.getElementById("total").innerText =
-    images.length;
+    photo.onload = () => {
 
-}
+      photo.style.opacity = "1";
+
+    };
+
+  },120);
 
 
   document
